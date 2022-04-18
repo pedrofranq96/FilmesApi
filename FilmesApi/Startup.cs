@@ -32,7 +32,7 @@ namespace FilmesApi
                 (options => options.UseSqlServer(Configuration.GetConnectionString("FilmeConnection")));
             services.AddControllers();
             services.AddSwaggerGen(c =>
-            {
+            { 
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "FilmesApi", Version = "v1" });
             });
         }
