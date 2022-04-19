@@ -1,12 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace FilmesApi.Data.Dtos
+
+namespace FilmesApi.Data.Dtos.Filme
 {
-    public class UpdateFilmeDto
+    public class CreateFilmeDto
     {
         [Required(ErrorMessage = "O campo título é obrigatório")]
         public string Titulo { get; set; }
