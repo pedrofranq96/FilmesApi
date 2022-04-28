@@ -3,14 +3,16 @@ using FilmesApi.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace FilmesApi.Migrations
 {
     [DbContext(typeof(FilmeContext))]
-    partial class FilmeContextModelSnapshot : ModelSnapshot
+    [Migration("20220427165541_relacionando cinema e endereco")]
+    partial class relacionandocinemaeendereco
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -28,7 +30,7 @@ namespace FilmesApi.Migrations
                     b.Property<int>("EnderecoId")
                         .HasColumnType("int");
 
-                    b.Property<int>("GerenteId")
+                    b.Property<int>("GerenteFK")
                         .HasColumnType("int");
 
                     b.Property<string>("Nome")
@@ -39,8 +41,6 @@ namespace FilmesApi.Migrations
 
                     b.HasIndex("EnderecoId")
                         .IsUnique();
-
-                    b.HasIndex("GerenteId");
 
                     b.ToTable("Cinemas");
                 });
@@ -93,21 +93,6 @@ namespace FilmesApi.Migrations
                     b.ToTable("Filmes");
                 });
 
-            modelBuilder.Entity("FilmesApi.Models.Gerente", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Nome")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Gerentes");
-                });
-
             modelBuilder.Entity("FilmesAPI.Models.Cinema", b =>
                 {
                     b.HasOne("FilmesApi.Models.Endereco", "Endereco")
@@ -116,23 +101,10 @@ namespace FilmesApi.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("FilmesApi.Models.Gerente", "Gerente")
-                        .WithMany("Cinema")
-                        .HasForeignKey("GerenteId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("Endereco");
-
-                    b.Navigation("Gerente");
                 });
 
             modelBuilder.Entity("FilmesApi.Models.Endereco", b =>
-                {
-                    b.Navigation("Cinema");
-                });
-
-            modelBuilder.Entity("FilmesApi.Models.Gerente", b =>
                 {
                     b.Navigation("Cinema");
                 });

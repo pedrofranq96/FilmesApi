@@ -5,13 +5,14 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace FilmesAPI.Data.Dtos
+namespace FilmesApi.Models
 {
-    public class CreateCinemaDto
+    public class Gerente
     {
-        [Required(ErrorMessage = "O campo de nome é obrigatório")]
+        [Key]
+        [Required]
+        public int Id { get; set; }
         public string Nome { get; set; }
-        public int EnderecoId { get; set; }
-
+        public virtual List<Cinema> Cinema { get; set; }
     }
 }
