@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using FilmesAPI.Data.Dtos;
-using FilmesAPI.Models;
+using FilmesApi.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;

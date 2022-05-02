@@ -14,10 +14,10 @@ namespace FilmesApi.Controllers
     [Route("[controller]")]
     public class GerenteController : ControllerBase
     {
-        private FilmeContext _context;
+        private CineContext _context;
         private IMapper _mapper;
 
-        public GerenteController(FilmeContext context, IMapper mapper)
+        public GerenteController(CineContext context, IMapper mapper)
         {
             _context = context;
             _mapper = mapper;

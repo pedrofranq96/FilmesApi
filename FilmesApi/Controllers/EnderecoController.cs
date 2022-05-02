@@ -2,7 +2,6 @@
 using FilmesApi.Data;
 using FilmesApi.Models;
 using FilmesAPI.Data.Dtos;
-using FilmesAPI.Models;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -15,10 +14,10 @@ namespace FilmesAPI.Controllers
     [Route("[controller]")]
     public class EnderecoController : ControllerBase
     {
-        private FilmeContext _context;
+        private CineContext _context;
         private IMapper _mapper;
 
-        public EnderecoController(FilmeContext context, IMapper mapper)
+        public EnderecoController(CineContext context, IMapper mapper)
         {
             _context = context;
             _mapper = mapper;

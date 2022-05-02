@@ -1,4 +1,5 @@
-﻿using FilmesAPI.Models;
+﻿
+using FilmesApi.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -12,5 +13,6 @@ namespace FilmesAPI.Data.Dtos
         public string Logradouro { get; set; }
         public string Bairro { get; set; }
         public int Numero { get; set; }
+ 
     }
 }
